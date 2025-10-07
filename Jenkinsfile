@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'MAVEN_HOME'
+        maven 'MAVEN_HOME'  // Make sure this matches your Jenkins Maven tool name
     }
 
     stages {
@@ -12,9 +12,8 @@ pipeline {
             }
         }
 
-        stage('Git Repo & Clean') {
+        stage('Clean') {
             steps {
-                bat "git pull"
                 bat "mvn clean -f ."
             }
         }
